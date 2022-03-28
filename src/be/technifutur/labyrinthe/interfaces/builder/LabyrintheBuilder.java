@@ -5,6 +5,7 @@ import be.technifutur.labyrinthe.interfaces.elements.LabyrintheFactory;
 
 public interface LabyrintheBuilder
 {
+    void setEntry(int ln, int col);
     void begin(int nbLn, int nbCol, LabyrintheFactory factory);
     void addMur(int ln, int col);
     void addPiece(int ln, int col);

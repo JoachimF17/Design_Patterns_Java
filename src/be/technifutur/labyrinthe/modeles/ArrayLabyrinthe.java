@@ -1,10 +1,9 @@
 package be.technifutur.labyrinthe.modeles;
 
 import be.technifutur.labyrinthe.interfaces.Labyrinthe;
+import be.technifutur.labyrinthe.interfaces.builder.LabyrinthePosition;
 import be.technifutur.labyrinthe.interfaces.builder.implementations.LabyrinthePositionImpl;
 import be.technifutur.labyrinthe.interfaces.elements.LabyrintheElement;
-
-import javax.swing.text.Position;
 
 public class ArrayLabyrinthe implements Labyrinthe
 {
@@ -25,7 +24,7 @@ public class ArrayLabyrinthe implements Labyrinthe
 
     public void addElement(LabyrintheElement element, int ln, int pos)
     {
-
+        grille[ln][pos] = element;
     }
 
     public void setEntry(int ln, int col)
@@ -40,8 +39,9 @@ public class ArrayLabyrinthe implements Labyrinthe
     }
 
     @Override
-    public LabyrintheElement getElement(LabyrintheElement element)
+    public LabyrintheElement getElement(LabyrintheElement element, Direction direction)
     {
-        return null;
+        LabyrinthePosition pos = element.getPosition().getPosition(direction);
+        return grille[pos.getLine()][pos.getColumn()];
     }
 }

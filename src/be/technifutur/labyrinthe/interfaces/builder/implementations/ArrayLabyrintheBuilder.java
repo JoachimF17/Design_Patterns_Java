@@ -3,12 +3,11 @@ package be.technifutur.labyrinthe.interfaces.builder.implementations;
 import be.technifutur.labyrinthe.interfaces.Labyrinthe;
 import be.technifutur.labyrinthe.interfaces.builder.LabyrintheBuilder;
 import be.technifutur.labyrinthe.interfaces.elements.LabyrintheFactory;
-import be.technifutur.labyrinthe.interfaces.elements.implementations.jardin.Barriere;
 import be.technifutur.labyrinthe.modeles.ArrayLabyrinthe;
 
 public class ArrayLabyrintheBuilder implements LabyrintheBuilder
 {
-    ArrayLabyrinthe grille = new ArrayLabyrinthe(5,6);
+    ArrayLabyrinthe grille;
     LabyrintheFactory facto;
 
     public void setEntry(int ln, int col)
@@ -19,6 +18,7 @@ public class ArrayLabyrintheBuilder implements LabyrintheBuilder
     @Override
     public void begin(int nbLn, int nbCol, LabyrintheFactory factory)
     {
+        grille = new ArrayLabyrinthe(nbLn, nbCol);
         facto = factory;
     }
 
@@ -49,6 +49,6 @@ public class ArrayLabyrintheBuilder implements LabyrintheBuilder
     @Override
     public Labyrinthe getLabyrinthe()
     {
-        return null;
+        return grille;
     }
 }
